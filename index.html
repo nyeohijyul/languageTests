@@ -214,12 +214,8 @@
     } else {
       // 만약 리스트에 있는경우에 아래 표시
       alert("20" + bangou.slice(1, 3) + "년도 " + bangou.slice(3, 5) + "월에 실시한 " + bangou.slice(0, 1) + "학년 모의고사 입니다.");
-      //document.getElementById("ground").innerHTML = `<iframe src="https://wdown.ebsi.co.kr/W61001/01exam/20240711/go3/korA_1_mun_RXG65M96.pdf" width="100%" height="700"/>`
-      if (bangou.slice(1, 3) <= 15 && bangou.slice(1, 3) >= 14){
-          btn(bangou);
-      } else {
-          pdfHyougen(bangou);
-      }
+      // document.getElementById("ground").innerHTML = `<iframe src="https://wdown.ebsi.co.kr/W61001/01exam/20240711/go3/korA_1_mun_RXG65M96.pdf" width="100%" height="700"/>`
+        pdfHyougen(bangou);
       }
       /*
       document.getElementById("ground").innerHTML = `
@@ -239,13 +235,21 @@
     `
   }
   function pdfHyougen(element){
-    document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[element]}" width="100%" height="700"/>`
+      if (element.slice(1, 3) <= 15 && element.slice(1, 3) >= 14){
+        document.getElementById("ground').innerHTML = '<button onclick="document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[document.getElementById("kensaku").value][0]}" width="100%" height="700"/>` > A형 </button><button onclick="document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[document.getElementById("kensaku").value][1]}" width="100%" height="700"/>` > B형 </button>'
+      
+      } else {
+          document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[element]}" width="100%" height="700"/>`
+      }
+    // document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[element]}" width="100%" height="700"/>`
   }
+/*
   function btn(element){
     document.getElementById("ground').innerHTML = `
                             <button onclick="document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[element][0]}" width="100%" height="700"/> > A형 </button>
                             <button onclick="document.getElementById("ground").innerHTML = `<iframe src="${gakurekiHeika[element][1]}" width="100%" height="700"/> > B형 </button>`
   }
+*/
 </script>
 
 </body>
